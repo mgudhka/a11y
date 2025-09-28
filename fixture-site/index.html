@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Accessibility Test Site</title>
+    <style>
+        /* Low contrast text - accessibility issue */
+        .low-contrast { color: #999; background: #ccc; }
+        
+        /* Good styles */
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .good-button { 
+            background: #0066cc; 
+            color: white; 
+            padding: 10px 20px; 
+            border: none; 
+            border-radius: 4px;
+        }
+        .error { color: red; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>Accessibility Test Site</h1>
+    
+    <!-- Missing alt attribute - accessibility issue -->
+    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iIzAwNzNlNiIvPgo8L3N2Zz4K" width="100" height="100">
+    
+    <!-- Proper image -->
+    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSI0MCIgZmlsbD0iIzI4YTc0NSIvPgo8L3N2Zz4K" alt="Green circle icon" width="100" height="100">
+    
+    <h2>Form Examples</h2>
+    
+    <!-- Form with accessibility issues -->
+    <form>
+        <!-- Missing label - accessibility issue -->
+        <input type="text" placeholder="Enter your name">
+        
+        <!-- Proper label association -->
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" required>
+        
+        <!-- Missing label and low contrast - multiple issues -->
+        <input type="password" placeholder="Password" class="low-contrast">
+        
+        <!-- Button with insufficient color contrast -->
+        <button type="submit" class="low-contrast">Submit</button>
+        
+        <!-- Proper button -->
+        <button type="button" class="good-button">Cancel</button>
+    </form>
+    
+    <h2>Navigation Examples</h2>
+    
+    <!-- Links without descriptive text - accessibility issue -->
+    <a href="/page1">Click here</a> |
+    <a href="/page2">Read more</a> |
+    <a href="/page3">Learn about our accessibility testing platform</a>
+    
+    <h2>Heading Structure Issues</h2>
+    
+    <!-- Skipped heading level - accessibility issue -->
+    <h4>This should be h3</h4>
+    <p>Content under improperly nested heading.</p>
+    
+    <h2>Color and Contrast</h2>
+    
+    <p class="low-contrast">This text has insufficient color contrast against the background, making it hard to read for users with visual impairments.</p>
+    
+    <p class="error">Error: This text relies only on color to convey meaning.</p>
+    
+    <h2>Tables</h2>
+    
+    <!-- Table without proper headers - accessibility issue -->
+    <table border="1">
+        <tr>
+            <td>Name</td>
+            <td>Age</td>
+            <td>Department</td>
+        </tr>
+        <tr>
+            <td>John Doe</td>
+            <td>30</td>
+            <td>Engineering</td>
+        </tr>
+        <tr>
+            <td>Jane Smith</td>
+            <td>25</td>
+            <td>Design</td>
+        </tr>
+    </table>
+    
+    <!-- Proper table with headers -->
+    <table border="1">
+        <thead>
+            <tr>
+                <th scope="col">Product</th>
+                <th scope="col">Price</th>
+                <th scope="col">Availability</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>A11y Scanner</td>
+                <td>$299/month</td>
+                <td>Available</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <!-- Interactive elements without focus indicators -->
+    <div onclick="alert('Clicked')" style="cursor: pointer; color: blue; text-decoration: underline;">
+        This looks like a link but isn't keyboard accessible
+    </div>
+    
+    <p><strong>This site contains intentional accessibility issues for testing purposes.</strong></p>
+</body>
+</html>

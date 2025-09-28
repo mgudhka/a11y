@@ -1,0 +1,25 @@
+import { DataSource } from 'typeorm';
+import { ConfigService } from '@nestjs/config';
+import { Organization } from '../entities/organization.entity';
+import { User } from '../entities/user.entity';
+import { Project } from '../entities/project.entity';
+import { ScanRun } from '../entities/scan-run.entity';
+import { Finding } from '../entities/finding.entity';
+import { FindingInstance } from '../entities/finding-instance.entity';
+import { Artifact } from '../entities/artifact.entity';
+import { Waiver } from '../entities/waiver.entity';
+import { Suppression } from '../entities/suppression.entity';
+import { AuditLog } from '../entities/audit-log.entity';
+export declare const databaseConfig: (configService: ConfigService) => {
+    type: "postgres";
+    host: any;
+    port: any;
+    username: any;
+    password: any;
+    database: any;
+    entities: (typeof User | typeof Organization | typeof Project | typeof FindingInstance | typeof Finding | typeof Waiver | typeof Suppression | typeof ScanRun | typeof Artifact | typeof AuditLog)[];
+    migrations: string[];
+    synchronize: boolean;
+    logging: boolean;
+};
+export declare const AppDataSource: DataSource;
